@@ -17,7 +17,7 @@ var TrainTicketSchema = new schema(
             required: 'User name field cannot be empty'
         },
         price: {
-            type: Number,
+            type: String,
             required: 'Course Id field cannot be empty'
         },
         departure: {
@@ -36,8 +36,9 @@ var TrainTicketSchema = new schema(
             required: 'User name field cannot be empty'
         },
         avaialableQty: {
-            type: String,
+            type: Number,
             trim: true,
+            default: '500',
             required: 'User name field cannot be empty'
         }
     }
@@ -89,7 +90,7 @@ var cart = new schema({
         required: true
     },
 
-    trainName: {
+    ticketId: {
         type: String,
         required: true
     },

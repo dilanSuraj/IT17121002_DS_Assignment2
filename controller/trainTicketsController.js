@@ -45,15 +45,17 @@ var trainTicketController = function () {
         })
     }
 
-    this.getOne = (ticketId) => {
+    this.getOne = (Id) => {
         return new Promise(function (resolve, reject) {
             trainTicketSchema.find({
-                ticketId: ticketId
+                ticketId: Id
             }).exec().then((data) => {
                 resolve({
                     status: 200,
                     data: data
-                })
+                });
+                
+               
             }).catch((err) => {
                 reject({
                     status: 500,

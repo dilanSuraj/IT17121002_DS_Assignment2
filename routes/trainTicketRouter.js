@@ -29,14 +29,20 @@ router.route('/').get(function (req, res) {
 
 router.route('/:ticketId').get(function (req, res) {
     trainTicketController.getOne(req.params.ticketId).then(function (data) {
+        
         res.status(data.status).send(
-            data.data
+           data.data
         );
+        
+        
     }).catch(error => {
+        
         res.status(error.status).send({
             message: error.message
         })
-    })
+    }
+
+    )
 });
 
 router.route('/:ticketId').delete(function (req, res) {

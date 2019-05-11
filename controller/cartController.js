@@ -8,7 +8,7 @@ var cartController = function(){
         return new Promise(function(resolve,reject){
             var cart = schema({
                 ID: data.ID,
-                trainName:data.trainName,
+                ticketId:data.ticketId,
                 total: data.total,
                 Date: new Date()
             }) 
