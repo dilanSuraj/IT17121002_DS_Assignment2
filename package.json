@@ -17,6 +17,7 @@
     "express": "^4.16.4",
     "mongoose": "^5.5.5",
     "nodemailer": "^6.1.1",
-    "parser": "^0.1.4"
+    "parser": "^0.1.4",
+    "twilio": "^3.30.3"
   }
 }
