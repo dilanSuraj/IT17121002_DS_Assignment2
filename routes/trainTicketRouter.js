@@ -16,6 +16,18 @@ router.route('/').post(function (req, res) {
     })
 });
 
+router.route('/').put(function (req, res) {
+    trainTicketController.update(req.body).then(function (data) {
+        res.status(data.status).send({
+            message: data.message
+        });
+    }).catch(error => {
+        res.status(error.status).send({
+            message: error.message
+        })
+    })
+});
+
 router.route('/').get(function (req, res) {
     trainTicketController.get().then(function (data) {
         res.status(data.status).send(data.data

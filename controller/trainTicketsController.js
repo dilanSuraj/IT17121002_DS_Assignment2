@@ -8,14 +8,36 @@ var trainTicketController = function () {
                 trainName:data.trainName,
                 ticketId:data.ticketId,
                 price:data.price,
-                departure:data.departure,
+                start:data.start,
                 destination:data.destination,
+                arrivalTime:data.arrivalTime,
                 departureTime:data.departureTime,
-                avaialableQty:data.avaialableQty
+                avaialableQty:data.avaialableQty,
+                ticketClass:data.ticketClass
             });
 
         
             trainTicket.save().then(() => {
+                resolve({
+                    status: 200,
+                    message: 'Added a trainTicket suucessfully'
+                })
+            }).catch((err) => {
+                reject({
+                    status: 500,
+                    message: 'Error : ' + err
+                })
+            });
+        })
+    }
+
+    this.update = function (data) {
+
+        console.log(data.availableQty);
+        return new Promise(function (resolve, reject) {
+        
+            
+            trainTicketSchema.update({ticketId:data.ticketId},{$set:{avaialableQty : data.availableQty}}).then(() => {
                 resolve({
                     status: 200,
                     message: 'Added a trainTicket suucessfully'

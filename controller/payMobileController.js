@@ -10,7 +10,8 @@ var MobilePayController = function () {
                 email: data.email,
                 pin: data.pin,
                 total: data.total,
-                subtotal: data.subTotal
+                subtotal: data.subTotal,
+                bookingDate:data.bookingDate
             });
 
             const accountSid = 'ACb6ed39fdaf4b52f9468ff929447bbf8a';

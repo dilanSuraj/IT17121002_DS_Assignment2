@@ -60,10 +60,10 @@ var userController = function () {
 
     this.getOne = (email,password) => {
         return new Promise(function (resolve, reject) {
-            userSchema.find({
+            userSchema.find({$and:[{
                 email: email,
                 password: password
-            }).exec().then((data) => {
+            }]}).exec().then((data) => {
                 resolve({
                     status: 200,
                     data: data

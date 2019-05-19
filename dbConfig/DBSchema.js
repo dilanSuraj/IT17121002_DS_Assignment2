@@ -14,32 +14,40 @@ var TrainTicketSchema = new schema(
         ticketId: {
             type: String,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'Ticket Id field cannot be empty'
+        },
+        ticketClass:{
+            type: String,
+            trim: true
         },
         price: {
             type: String,
-            required: 'Course Id field cannot be empty'
+            required: 'Price field cannot be empty'
         },
-        departure: {
+        start: {
             type: String,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'Start place field cannot be empty'
         },
         destination: {
             type: String,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'Destination field cannot be empty'
+        },
+        arrivalTime: {
+            type: String,
+            trim: true,
+            required: 'Arrival Time field cannot be empty'
         },
         departureTime: {
             type: String,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'Departure Time field cannot be empty'
         },
         avaialableQty: {
             type: Number,
             trim: true,
-            default: '500',
-            required: 'User name field cannot be empty'
+            required: 'Available Qty field cannot be empty'
         }
     }
 )
@@ -55,7 +63,7 @@ var UserSchema = new schema(
         },
         email: {
             type: String,
-            required: 'Course Id field cannot be empty'
+            required: 'Email field cannot be empty'
         },
         password: {
             type: String,
@@ -64,45 +72,20 @@ var UserSchema = new schema(
         },
         address: {
             type: String,
-            required: 'Course Id field cannot be empty'
+            required: 'Password field cannot be empty'
         },
         mobileNumber: {
             type: String,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'Mobile Number field cannot be empty'
         },
         NICNo: {
             type: String,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'NIC No field cannot be empty'
         }
 
     }
-)
-
-/*
-Ticket Cart schema
-*/
-
-var cart = new schema({
-    ID: {
-        type: String,
-        required: true
-    },
-
-    ticketId: {
-        type: String,
-        required: true
-    },
-    total: {
-        type: String,
-        required: true
-    },
-    Date: {
-        type: String,
-        required: true
-    }
-}
 )
 
 /*
@@ -130,6 +113,9 @@ var MobileCardSchema = new schema(
         subtotal: {
             type: Number,
             required: true
+        },
+        bookingDate:{
+            type: String
         }
     }
 )
@@ -138,45 +124,43 @@ var MobileCardSchema = new schema(
 */
 var CreditCardSchema = new schema(
     {
-        name: {
-            type: String,
-            trim: true,
-            required: 'User name field cannot be empty'
-        },
+        
         email: {
             type: String,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'Email field cannot be empty'
         },
         cardNumber: {
             type: String,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'Card number field cannot be empty'
         },
         cvc: {
             type: String,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'Cvc field cannot be empty'
         },
         total: {
             type: Number,
-            required: 'Course Id field cannot be empty'
+            required: 'Total field cannot be empty'
         },
         subtotal: {
             type: Number,
             trim: true,
-            required: 'User name field cannot be empty'
+            required: 'Sub total field cannot be empty'
+        },
+         bookingDate:{
+            type: String
         }
     }
 )
 
 mongoose.model('trainTickets', TrainTicketSchema);
 mongoose.model('user', UserSchema);
-mongoose.model('cart', cart);
 mongoose.model('creditCard', CreditCardSchema);
 mongoose.model('dialogPay', MobileCardSchema);
 
-mongoose.connect('mongodb://127.0.0.1:27017/eBookDB', function(err){
+mongoose.connect('mongodb://127.0.0.1:27017/eTrainBook', function(err){
     if(err){
         console.log(err);
         process.exit(-1);

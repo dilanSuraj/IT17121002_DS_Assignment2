@@ -7,7 +7,7 @@ var CreditCardPayController = function () {
     this.insert = function (data) {
         return new Promise(function (resolve, reject) {
             var creditCardPayment = new creditCardPaySchema({
-                  name: data.name,
+                  bookingDate: data.bookingDate,
                   email:data.email,
                   cardNumber:data.cardNumber,
                   cvc:data.cvc,
