@@ -4,6 +4,7 @@ const cors = require('cors');
 var mongoose = require('mongoose');
 var routes = require('./routes');
 const app = express();
+const PORT = process.env.PORT || 4001
 
 app.use(bodyParser.urlencoded({
     extended: false
@@ -25,6 +26,6 @@ app.use('/', routes);
 /*
   Backend server is listening to port 3001
 */
-app.listen(4001, () => {
+app.listen(PORT, () => {
     console.log('Server is listening to port 4001');
 })
