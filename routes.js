@@ -17,4 +17,8 @@ routes.use('/creditcard', payCardRouter);
 routes.use('/dialogpay', payDialogRouter);
 routes.use('/discount', discountRouter);
 
+routes.get('/', (req, res) => {
+    res.send('Server is up and running');
+});
+
 module.exports = routes;
