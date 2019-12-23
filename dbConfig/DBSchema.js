@@ -160,7 +160,7 @@ mongoose.model('user', UserSchema);
 mongoose.model('creditCard', CreditCardSchema);
 mongoose.model('dialogPay', MobileCardSchema);
 
-mongoose.connect('mongodb://localhost/eTrainBook', function(err){
+mongoose.connect('mongodb://localhost:27017/eTrainBook', function(err){
     if(err){
         console.log(err);
         process.exit(-1);
